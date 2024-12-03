@@ -2,7 +2,7 @@
 
 ## Neural network reactive force field for C, H, N, O systems  
  
-### npj Comput Mater 7, 9 (2021). https://doi.org/10.1038/s41524-020-00484-3   
+### npj Comput Mater 7, 9 (2021).   
  Abstract:   
  Reactive force fields have enabled an atomic level description of a wide range of phenomena, from chemistry at extreme conditions to the operation of electrochemical devices and catalysis. While significant insight and semi-quantitative understanding have been drawn from such work, the accuracy of reactive force fields limits quantitative predictions. We developed a neural network reactive force field (NNRF) for CHNO systems to describe the decomposition and reaction of the high energy nitramine 1,3,5-Trinitroperhydro-1,3,5-triazine (RDX). NNRF was trained using energies and forces of a total of 3100 molecules (11941 geometries) and 15 condensed matter systems (32973 geometries) obtained from density functional theory calculations with semi-empirical corrections to dispersion interactions. The training set is generated via a semi-automated iterative procedure that enables refinement of the NNRF until a desired accuracy is attained. The RMS error of NNRF on a testing set of configurations describing the reaction of RDX is one order of magnitude lower than current state of the art potentials.    
 
