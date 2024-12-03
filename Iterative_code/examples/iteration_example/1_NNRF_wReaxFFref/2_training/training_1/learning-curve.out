@@ -1,0 +1,35 @@
+################################################################################
+# Learning curves for energies and forces.
+################################################################################
+# Col  Name             Description
+################################################################################
+# 1    epoch            Current epoch.
+# 2    RMSEpa_Etrain_pu RMSE of training energies per atom (physical units).
+# 3    RMSEpa_Etest_pu  RMSE of test energies per atom (physical units).
+# 4    RMSE_Ftrain_pu   RMSE of training forces (physical units).
+# 5    RMSE_Ftest_pu    RMSE of test forces (physical units).
+# 6    RMSE_Etrain_pu   RMSE of training energies (physical units).
+# 7    RMSE_Etest_pu    RMSE of test energies (physical units).
+# 8    MAEpa_Etrain_pu  MAE of training energies per atom (physical units).
+# 9    MAEpa_Etest_pu   MAE of test energies per atom (physical units).
+# 10   MAE_Ftrain_pu    MAE of training forces (physical units).
+# 11   MAE_Ftest_pu     MAE of test forces (physical units).
+# 12   MAE_Etrain_pu    MAE of training energies (physical units).
+# 13   MAE_Etest_pu     MAE of test energies (physical units).
+# 14   RMSEpa_Etrain_iu RMSE of training energies per atom (internal units).
+# 15   RMSEpa_Etest_iu  RMSE of test energies per atom (internal units).
+# 16   RMSE_Ftrain_iu   RMSE of training forces (internal units).
+# 17   RMSE_Ftest_iu    RMSE of test forces (internal units).
+# 18   RMSE_Etrain_iu   RMSE of training energies (internal units).
+# 19   RMSE_Etest_iu    RMSE of test energies (internal units).
+# 20   MAEpa_Etrain_iu  MAE of training energies per atom (internal units).
+# 21   MAEpa_Etest_iu   MAE of test energies per atom (internal units).
+# 22   MAE_Ftrain_iu    MAE of training forces (internal units).
+# 23   MAE_Ftest_iu     MAE of test forces (internal units).
+# 24   MAE_Etrain_iu    MAE of training energies (internal units).
+# 25   MAE_Etest_iu     MAE of test energies (internal units).
+##################################################################################################################################################################################################################################################################################################################################################################################################################################
+#        1                2                3                4                5                6                7                8                9               10               11               12               13               14               15               16               17               18               19               20               21               22               23               24               25
+#    epoch RMSEpa_Etrain_pu  RMSEpa_Etest_pu   RMSE_Ftrain_pu    RMSE_Ftest_pu   RMSE_Etrain_pu    RMSE_Etest_pu  MAEpa_Etrain_pu   MAEpa_Etest_pu    MAE_Ftrain_pu     MAE_Ftest_pu    MAE_Etrain_pu     MAE_Etest_pu RMSEpa_Etrain_iu  RMSEpa_Etest_iu   RMSE_Ftrain_iu    RMSE_Ftest_iu   RMSE_Etrain_iu    RMSE_Etest_iu  MAEpa_Etrain_iu   MAEpa_Etest_iu    MAE_Ftrain_iu     MAE_Ftest_iu    MAE_Etrain_iu     MAE_Etest_iu
+##################################################################################################################################################################################################################################################################################################################################################################################################################################
+         0   2.48657819E+00   2.74130265E+00   9.99363303E+01   9.90188085E+01   2.79191655E+02   3.54902147E+02   1.78004829E+00   2.17282132E+00   7.41577442E+01   7.33956730E+01   1.80419683E+02   2.46534079E+02   1.02810223E+00   1.13342077E+00   9.86848261E-01   9.77787945E-01   1.15434763E+02   1.46738072E+02   7.35979919E-01   8.98376114E-01   7.32290657E-01   7.24765379E-01   7.45964391E+01   1.01932140E+02

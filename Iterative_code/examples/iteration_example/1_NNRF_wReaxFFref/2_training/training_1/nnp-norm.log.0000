@@ -1,0 +1,72 @@
+
+*** SETUP: MPI ****************************************************************
+
+Number of processors: 1
+Process 1 of 1 (rank 0): 8c562bcf5540
+*******************************************************************************
+
+*******************************************************************************
+
+   NNP LIBRARY v2.0.0
+   ------------------
+
+Git branch  : HEAD
+Git revision: 67cbf5ae (67cbf5ae407ff464cbc6674ae93dec867e70a671)
+
+*******************************************************************************
+
+*** SETUP: SETTINGS FILE ******************************************************
+
+Settings file name: input.nn
+Read 288 lines.
+Found 221 lines with keywords.
+*******************************************************************************
+
+*** SETUP: ELEMENT MAP ********************************************************
+
+Number of element strings found: 4
+Element  0:  H (  1)
+Element  1:  C (  6)
+Element  2:  N (  7)
+Element  3:  O (  8)
+*******************************************************************************
+
+*** SETUP: ELEMENTS ***********************************************************
+
+Number of elements is consistent: 4
+Atomic energy offsets per element:
+Element  0:  -9.89100000E+01
+Element  1:  -2.93970000E+02
+Element  2:  -2.36900000E+02
+Element  3:  -1.54280000E+02
+Energy offsets are automatically subtracted from reference energies.
+*******************************************************************************
+
+*** STRUCTURE DISTRIBUTION ****************************************************
+
+Reading configurations from data file: input.data.
+Total number of structures: 501
+Number of structures per processor: 501
+Distributed 501 structures, 0 bytes (0.00 MiB) transferred.
+Number of local structures: 501
+*******************************************************************************
+
+*** DATA SET NORMALIZATION ****************************************************
+
+Writing energy/atom vs. volume/atom data to "evsv.dat".
+
+Total number of structures: 501
+Total number of atoms     : 69321
+Mean/sigma energy per atom:  -5.43281926E+00 +/-   2.41860986E+00
+Mean/sigma force          :  -2.12678039E-07 +/-   1.01268183E+02
+Conversion factor energy  :   4.1346064833387752E-01
+Conversion factor length  :   4.1870408581848444E+01
+
+Writing converted data file to "output.data".
+WARNING: This data set is provided for debugging purposes only and is NOT intended for training.
+
+Writing backup of original settings file to "input.nn.bak".
+
+Writing extended settings file to "input.nn".
+Use this settings file for normalized training.
+*******************************************************************************

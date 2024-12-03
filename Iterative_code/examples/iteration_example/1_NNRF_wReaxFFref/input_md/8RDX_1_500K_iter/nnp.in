@@ -1,0 +1,59 @@
+###############################################################################
+# VARIABLES
+###############################################################################
+clear
+# Configuration files
+variable dt              equal  0.1
+# NN
+variable nnpCutoff       equal  5.0
+variable nnpDir          string "nnp-data"
+# Masses
+variable mass_H          equal   1.0001
+variable mass_C          equal  12.0109
+variable mass_N          equal  14.0000
+variable mass_O          equal  15.9994
+
+###############################################################################
+# GENERAL SETUP
+###############################################################################
+units real
+boundary p p p
+atom_style charge
+read_data rdx_1_data
+mass 1 ${mass_H}
+mass 2 ${mass_C}
+mass 3 ${mass_N}
+mass 4 ${mass_O}
+timestep ${dt}
+
+###############################################################################
+# NN
+###############################################################################
+pair_style hybrid/overlay reax/c NULL nnp dir ${nnpDir} showew no showewsum 10000 resetew yes maxew 100000 cflength 1.0 cfenergy 1.0
+pair_coeff * * reax/c ffield H C N O
+#pair_coeff * * nnp dir ${nnpDir} showew no showewsum 10000 resetew yes maxew 100000 cflength 1.0 cfenergy 1.0
+pair_coeff * * nnp ${nnpCutoff}
+compute reax all pair reax/c
+fix             10 all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+
+# Energy Minimization
+thermo_style    custom step etotal ke pe temp vol density  press lx ly lz
+thermo          1000
+dump            min all custom 1 min.dump id element type x y z q vx vy vz
+dump_modify     min element H C N O sort id
+
+min_style cg
+minimize 1e-16 1e-16  100000  100000
+undump          min
+
+
+velocity        all create 500 884932 mom yes rot yes dist gaussian
+timestep        0.1
+thermo_style    custom step etotal ke pe temp vol density  press lx ly lz
+thermo          1000
+
+fix             1 all nvt temp 500.0 500.0 25.0
+dump            dyn_dump all custom 1 dynamics.dump id element type x y z q vx vy vz
+dump_modify     dyn_dump element H C N O sort id
+
+run             3000

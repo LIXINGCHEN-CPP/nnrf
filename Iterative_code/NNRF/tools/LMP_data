@@ -1,0 +1,22 @@
+#!/bin/env python
+
+from ase.calculators.lammpslib import write_lammps_data
+from ase.io import read, write
+from ase.data import chemical_symbols
+import sys
+
+f = sys.argv[1]
+
+atoms = read(f)
+chem = atoms.get_chemical_symbols()
+element_numbers = list(sorted(set(atoms.get_atomic_numbers())))
+elements = []
+for number in element_numbers:
+	t = chemical_symbols[number]
+	elements.append(t)
+
+atom_types = {}
+for el, i in zip(elements, range(len(elements))):
+    atom_types[el] = i+1
+
+write_lammps_data(filename=f+'.reax', atoms=atoms, atom_types=atom_types, units='real')

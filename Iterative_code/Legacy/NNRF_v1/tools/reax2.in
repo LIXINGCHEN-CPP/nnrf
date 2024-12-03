@@ -1,0 +1,62 @@
+#variable simname hmx_test
+
+# Initialization
+units           real
+boundary        p p p
+
+atom_style      charge
+neighbor        2.0 nsq
+neigh_modify    delay 2
+
+read_data       ${filename}.lmp
+
+#    Potential Parameters
+
+pair_style      reax/c NULL safezone 4.0 mincap 400
+pair_coeff      * * ffield_2014 H C N O
+
+#pair_style       hybrid/overlay snap reax/c NULL safezone 4.0 mincap 400
+#pair_coeff       * * reax/c ffield_2014 C O 
+#pair_coeff       * * snap HCON.snapcoeff C O HCON.snapparam C O
+
+
+compute reax all pair reax/c
+fix             10 all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+#####################################################
+
+variable eb equal c_reax[1]
+variable ea equal c_reax[2]
+variable elp equal c_reax[3]
+variable emol equal c_reax[4]
+variable ev equal c_reax[5]
+variable epen equal c_reax[6]
+variable ecoa equal c_reax[7]
+variable ehb equal c_reax[8]
+variable et equal c_reax[9]
+variable eco equal c_reax[10]
+variable ew equal c_reax[11]
+variable ep equal c_reax[12]
+variable efi equal c_reax[13]
+variable eqeq equal c_reax[14]
+
+
+thermo_style    custom step v_eb v_ea v_elp v_emol v_ev v_epen v_ecoa v_ehb v_et v_eco v_ew v_ep v_efi v_eqeq press pe  
+thermo          1
+
+fix             rbo all reax/c/bonds 2 bonds.reaxc_${filename}
+fix             spe1 all reax/c/species 1 1 1 species.out_${filename} element H C O N position 1 pos.txt
+
+#dump            min2 all custom 2 min.dump_${filename} id element x y z q fx fy fz
+#dump_modify     min2  element H C O N
+
+dump            min2 all custom 2 min.dump_${filename} id type x y z q fx fy fz
+
+#dump            min3 all custom 2 dump_${filename} id type x y z q vx vy vz
+
+
+min_style cg
+minimize 1e-8 1e-8  0  0
+undump          min2
+
+run             1
+
